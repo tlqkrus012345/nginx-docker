@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  nginx-docker-app:
+    container_name: nginx-docker-app
+    image: "tlqkrus012345/nginx-docker-test"
+    ports:
+      - "8080:8080"
+
+  nginx:
+    container_name: nginx
+    image: "nginx:test"
+    ports:
+      - "80:80"
+    depends_on:
+      - nginx-docker-app
