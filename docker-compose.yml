@@ -9,8 +9,11 @@ services:
 
   nginx:
     container_name: nginx
-    image: "nginx:test"
+    build:
+      context: ./nginx
     ports:
       - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - nginx-docker-app
